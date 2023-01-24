@@ -1,17 +1,15 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.Domain
+namespace Server.Application.FridgeModels.Commands.CreateFridgeModel
 {
-    public class FridgeModel
+    public class CreateFridgeModelCommand : IRequest<Guid>
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public int Year { get; set; }
-
-        public List<Fridge> fridges = new();
     }
 }

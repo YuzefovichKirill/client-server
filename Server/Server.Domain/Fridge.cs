@@ -9,12 +9,12 @@ namespace Server.Domain
 {
     public class Fridge
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string OwnerName { get; set; }
 
         [ForeignKey("FridgeModel")]
-        public int FridgeModelId { get; set; }
+        public Guid FridgeModelId { get; set; }
         public FridgeModel FridgeModel { get; set; }
 
         public List<FridgeProduct> fridgeProducts = new();
