@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Server.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.Application.FridgeModels.Queries.GetFridgeModel
+namespace Server.Application.FridgeModels.Queries.GetAllFridgeModel
 {
     public class FridgeModelListVm
     {
-        public IList<FridgeModelDto> FridgeModels { get; set; }
+        public List<FridgeModel> fridgeModels;
     }
 }

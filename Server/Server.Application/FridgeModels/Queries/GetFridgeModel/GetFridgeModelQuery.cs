@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Server.Application.FridgeModels.Queries.GetFridgeModel
 {
-    public class GetFridgeModelListQuery : IRequest<FridgeModelListVm>
+    public class GetFridgeModelQuery : IRequest<FridgeModelVm>
     {
         public Guid Id { get; set; }
     }

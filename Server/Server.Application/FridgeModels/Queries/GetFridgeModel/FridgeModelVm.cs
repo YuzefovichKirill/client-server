@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Server.Application.FridgeModels.Queries.GetFridgeModel
 {
     // as example
-    public class FridgeModelDto : IMapWith<FridgeModel>
+    public class FridgeModelVm : IMapWith<FridgeModel>
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -18,7 +18,7 @@ namespace Server.Application.FridgeModels.Queries.GetFridgeModel
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<FridgeModel, FridgeModelDto>()
+            profile.CreateMap<FridgeModel, FridgeModelVm>()
                 .ForMember(fridgeModelDto => fridgeModelDto.Id,
                     opt => opt.MapFrom(fridgeModel => fridgeModel.Id))
                 .ForMember(fridgeModelDto => fridgeModelDto.Name,
