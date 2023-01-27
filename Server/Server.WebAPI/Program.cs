@@ -1,8 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Protocols;
 using Server.Application;
 using Server.Application.Common.Mappings;
 using Server.Application.Interfaces;
 using Server.Persistence;
+using System;
 using System.Reflection;
 
 namespace Server.WebAPI
@@ -41,6 +44,8 @@ namespace Server.WebAPI
 
             // Configure
             var app = builder.Build();
+
+
             using (var scope = app.Services.CreateScope())
             {
                 var serviceProvider = scope.ServiceProvider;
@@ -51,16 +56,14 @@ namespace Server.WebAPI
                 }
                 catch (Exception exception)
                 {
-
                 }
             }
-
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskWebAPIServer v1"));
             app.UseRouting();
             app.UseHttpsRedirection();
-            app.UseCors("AllowAll");
+            //app.UseCors("AllowAll");
 
             app.UseEndpoints(endpoints =>
             {

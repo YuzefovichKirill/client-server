@@ -10,15 +10,17 @@ namespace Server.Persistence
         public static IServiceCollection AddPersistence(this IServiceCollection
             services, IConfiguration configuration)
         {
-            var connectionString = configuration["DbConnectionString"];
+            var connectionString = configuration.GetConnectionString("DbConnectionString");
 
             services.AddDbContext<ServerDbContext>(options =>
             {
                 options.UseSqlServer(connectionString);
             });
-            services.AddScoped<IServerDbContext>(provider =>
-                provider.GetService<IServerDbContext>());
+            // doesn't work
+            //services.AddScoped<IServerDbContext>(provider =>
+            //    provider.GetService<IServerDbContext>());
 
+            services.AddScoped<IServerDbContext, ServerDbContext>();
             return services;
         }
 

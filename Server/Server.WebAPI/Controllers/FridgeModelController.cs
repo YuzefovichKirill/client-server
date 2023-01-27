@@ -20,12 +20,12 @@ namespace Server.WebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<FridgeModelListVm>> GetAll()
         {
-            // change
             var query = new GetAllFridgeModelQuery();
 
             var vm = await Mediator.Send(query);
 
-            return Ok(vm);
+            // change ?
+            return Ok(vm.fridgeModels.ToList());
         }
 
         [HttpGet("{id}")]
