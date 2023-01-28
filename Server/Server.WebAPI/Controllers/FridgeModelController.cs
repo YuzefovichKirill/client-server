@@ -45,8 +45,6 @@ namespace Server.WebAPI.Controllers
                 Year = createFridgeModelCommand.Year
             };
 
-
-
             var Id = await Mediator.Send(command);
             return Ok(Id);
         }

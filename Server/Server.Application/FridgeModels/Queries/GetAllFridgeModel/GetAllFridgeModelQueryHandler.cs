@@ -29,14 +29,14 @@ namespace Server.Application.FridgeModels.Queries.GetAllFridgeModel
         public async Task<FridgeModelListVm> Handle(GetAllFridgeModelQuery request,
             CancellationToken cancellationToken)
         {
-            var list = await _dbContext.FridgeModels.ToListAsync(cancellationToken);
+            var fridgeModelsList = await _dbContext.FridgeModels.ToListAsync(cancellationToken);
 
-            if (list == null)
+            if (fridgeModelsList == null)
             {
                 throw new NotFoundException(nameof(FridgeModel), -1);
             }
 
-            return new FridgeModelListVm { fridgeModels = new List<FridgeModel>(list) };
+            return new FridgeModelListVm { fridgeModels = new List<FridgeModel>(fridgeModelsList) };
         }
     }
 }

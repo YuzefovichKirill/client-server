@@ -16,15 +16,14 @@ namespace Server.Application.FridgeModels.Commands.DeleteFridgeModel
         public async Task<Unit> Handle(DeleteFridgeModelCommand request,
             CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.FridgeModels
-                .FindAsync(new object[] { request.Id }, cancellationToken);
+            var fridgeModel = await _dbContext.FridgeModels.FindAsync(new object[] { request.Id }, cancellationToken);
 
-            if (entity == null)
+            if (fridgeModel == null)
             {
                 throw new NotFoundException(nameof(FridgeModel), request.Id);
             }
 
-            _dbContext.FridgeModels.Remove(entity);
+            _dbContext.FridgeModels.Remove(fridgeModel);
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 

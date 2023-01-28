@@ -17,21 +17,21 @@ namespace Server.Application.FridgeModels.Queries.GetFridgeModel
         public GetFridgeModelQueryHandler(IServerDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
-                _mapper = mapper;
-            }
-    
+            _mapper = mapper;
+        }
+
         public async Task<FridgeModelVm> Handle(GetFridgeModelQuery request,
             CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.FridgeModels
-                .FirstOrDefaultAsync(fridgeModel => fridgeModel.Id == request.Id, cancellationToken);
+            var fridgeModel = await _dbContext.FridgeModels.FindAsync(new object[] { request.Id }, cancellationToken);
 
-            if (entity == null)
+            if (fridgeModel == null)
             {
                 throw new NotFoundException(nameof(FridgeModel), request.Id);
             }
 
-            return _mapper.Map<FridgeModelVm>(entity);
+            return _mapper.Map<FridgeModelVm>(fridgeModel);
         }
     }
 }
+

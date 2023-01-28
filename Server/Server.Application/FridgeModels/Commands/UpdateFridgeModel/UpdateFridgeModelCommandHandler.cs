@@ -18,17 +18,16 @@ namespace Server.Application.FridgeModels.Commands.UpdateFridgeModel
         public async Task<Unit> Handle(UpdateFridgeModelCommand request,
             CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.FridgeModels.FirstOrDefaultAsync(fridgeModel =>
-                fridgeModel.Id == request.Id, cancellationToken);
+            var fridgeModel = await _dbContext.FridgeModels.FindAsync(new object[] { request.Id }, cancellationToken);
 
-            if (entity == null)
+            if (fridgeModel == null)
             {
                 throw new NotFoundException(nameof(FridgeModel), request.Id);
             }
 
-            entity.Id = request.Id;
-            entity.Name = request.Name;
-            entity.Year = request.Year;
+            fridgeModel.Id = request.Id;
+            fridgeModel.Name = request.Name;
+            fridgeModel.Year = request.Year;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 

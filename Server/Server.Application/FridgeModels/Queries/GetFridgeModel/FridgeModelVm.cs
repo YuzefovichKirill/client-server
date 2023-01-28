@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 
 namespace Server.Application.FridgeModels.Queries.GetFridgeModel
 {
-    // as example
+
     public class FridgeModelVm : IMapWith<FridgeModel>
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int Year { get; set; }
 
+        // as example
         public void Mapping(Profile profile)
         {
             profile.CreateMap<FridgeModel, FridgeModelVm>()
