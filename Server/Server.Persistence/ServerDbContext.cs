@@ -19,12 +19,14 @@ namespace Server.Persistence
 
         public ServerDbContext(DbContextOptions<ServerDbContext> options)
             : base(options) { }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new FridgeConfiguration());
             builder.ApplyConfiguration(new FridgeProductConfiguration());
             builder.ApplyConfiguration(new FridgeModelConfiguration());
             builder.ApplyConfiguration(new ProductConfiguration());
+
             base.OnModelCreating(builder);
         }
 

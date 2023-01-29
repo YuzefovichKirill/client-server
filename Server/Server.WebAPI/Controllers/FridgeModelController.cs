@@ -5,7 +5,6 @@ using Server.Application.FridgeModels.Queries.GetFridgeModel;
 using Server.Application.FridgeModels.Commands.CreateFridgeModel;
 using Server.Application.FridgeModels.Commands.DeleteFridgeModel;
 using Server.Application.FridgeModels.Commands.UpdateFridgeModel;
-
 using Server.WebAPI.Models;
 
 namespace Server.WebAPI.Controllers
@@ -21,11 +20,9 @@ namespace Server.WebAPI.Controllers
         public async Task<ActionResult<FridgeModelListVm>> GetAll()
         {
             var query = new GetAllFridgeModelQuery();
-
             var vm = await Mediator.Send(query);
-
             // change ?
-            return Ok(vm.fridgeModels.ToList());
+            return Ok(vm.fridgeModels);
         }
 
         [HttpGet("{id}")]
@@ -39,13 +36,7 @@ namespace Server.WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateFridgeModelCommand createFridgeModelCommand)
         {
-            var command = new CreateFridgeModelCommand
-            {
-                Name = createFridgeModelCommand.Name,
-                Year = createFridgeModelCommand.Year
-            };
-
-            var Id = await Mediator.Send(command);
+            var Id = await Mediator.Send(createFridgeModelCommand);
             return Ok(Id);
         }
 
@@ -60,9 +51,9 @@ namespace Server.WebAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid guid)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeleteFridgeModelCommand { Id = guid };
+            var command = new DeleteFridgeModelCommand { Id = id };
             await Mediator.Send(command);
             return NoContent();
         }
