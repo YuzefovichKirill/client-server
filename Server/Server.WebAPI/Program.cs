@@ -7,6 +7,7 @@ using Server.Application.Interfaces;
 using Server.Persistence;
 using System;
 using System.Reflection;
+using Server.WebAPI.Middleware;
 
 namespace Server.WebAPI
 {
@@ -61,6 +62,8 @@ namespace Server.WebAPI
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskWebAPIServer v1"));
+
+            app.UseCustomExceptionHandler();
             app.UseRouting();
             app.UseHttpsRedirection();
             //app.UseCors("AllowAll");
