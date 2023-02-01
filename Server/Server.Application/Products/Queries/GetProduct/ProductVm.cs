@@ -1,4 +1,5 @@
-﻿using Server.Application.Common.Mappings;
+﻿using AutoMapper;
+using Server.Application.Common.Mappings;
 using Server.Domain;
 
 
@@ -9,5 +10,10 @@ namespace Server.Application.Products.Queries.GetProduct
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int DefaultQuantity { get; set; }
+
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<Product, ProductVm>();
+        }
     }
 }

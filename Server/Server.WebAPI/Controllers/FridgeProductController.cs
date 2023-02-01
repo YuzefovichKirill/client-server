@@ -24,7 +24,7 @@ namespace Server.WebAPI.Controllers
             return Ok(vm);
         }
 
-        [HttpGet("{fridgeId}{productId}")]
+        [HttpGet("{fridgeId}&{productId}")]
         public async Task<ActionResult<FridgeProductVm>> Get(Guid fridgeId, Guid productId)
         {
             var query = new GetFridgeProductQuery() { FridgeId = fridgeId, ProductId = productId };

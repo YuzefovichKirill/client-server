@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Server.Application.Common.Exceptions;
 using Server.Application.Interfaces;
 using Server.Domain;
@@ -35,7 +36,8 @@ namespace Server.Application.FridgeProducts.Queries.GetFridgeProduct
                 throw new NotFoundException(nameof(Product), request.ProductId);
             }
 
-            var fridgeProduct = await _dbContext.FridgeProducts.FindAsync(new object[] {request.FridgeId, request.ProductId}, cancellationToken);
+            var fridgeProduct = await _dbContext.FridgeProducts.SingleOrDefaultAsync(fridgeProduct => request.FridgeId == fridgeProduct.FridgeId && 
+                request.ProductId == fridgeProduct.ProductId, cancellationToken);
 
             if (fridgeProduct == null)
             {

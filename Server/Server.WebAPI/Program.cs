@@ -8,6 +8,8 @@ using Server.Persistence;
 using System;
 using System.Reflection;
 using Server.WebAPI.Middleware;
+using Serilog;
+using Serilog.Events;
 
 namespace Server.WebAPI
 {
@@ -15,7 +17,15 @@ namespace Server.WebAPI
     {
         public static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .WriteTo.File("WebAppLog-.log", rollingInterval:
+                    RollingInterval.Day)
+                .CreateLogger();
+
             var builder = WebApplication.CreateBuilder(args);
+            builder.Host.UseSerilog(Log.Logger);
+
             IServiceCollection services = builder.Services;
 
             services.AddAutoMapper(config =>
@@ -57,6 +67,7 @@ namespace Server.WebAPI
                 }
                 catch (Exception exception)
                 {
+                    Log.Fatal(exception, "An error occured while app initialization");
                 }
             }
 

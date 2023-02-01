@@ -1,4 +1,5 @@
-﻿using Server.Application.Common.Mappings;
+﻿using AutoMapper;
+using Server.Application.Common.Mappings;
 using Server.Domain;
 
 namespace Server.Application.Fridges.Queries.GetFridge
@@ -9,5 +10,9 @@ namespace Server.Application.Fridges.Queries.GetFridge
         public string Name { get; set; }
         public string OwnerName { get; set; }
         public Guid FridgeModelId { get; set; }
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<Fridge, FridgeVm>();
+        }
     }
 }

@@ -22,14 +22,6 @@ namespace Server.Tests.Common
             var context = new ServerDbContext(options);
             context.Database.EnsureCreated();
 
-            for (int i = 0; i < 5; i++)
-            {
-                fridgeModelGuids[i] = Guid.NewGuid();
-                fridgeGuids[i] = Guid.NewGuid();
-                productGuids[i] = Guid.NewGuid();
-                fridgeProductGuids[i] = Guid.NewGuid();
-            }
-
             context.FridgeModels.AddRange(new List<FridgeModel>()
             {
                     new FridgeModel() { Id = fridgeModelGuids[0], Name = "Bosch", Year = 2018 },

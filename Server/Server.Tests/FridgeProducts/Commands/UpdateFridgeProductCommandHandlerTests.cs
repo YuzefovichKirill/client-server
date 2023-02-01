@@ -29,7 +29,7 @@ namespace Server.Tests.FridgeProducts.Commands
             Assert.NotNull(context.FridgeProducts.SingleOrDefault(fridgeProduct =>
                 fridgeProduct.Id == ContextFactory.fridgeProductGuids[0] &&
                 fridgeProduct.FridgeId == ContextFactory.fridgeGuids[1] && 
-                fridgeProduct.ProductId == ContextFactory.fridgeGuids[1]));
+                fridgeProduct.ProductId == ContextFactory.productGuids[1]));
         }
 
         [Fact]
