@@ -11,7 +11,7 @@ namespace Server.Application.Fridges.Commands.UpdateFridge
             RuleFor(updateFridgeCommand =>
                 updateFridgeCommand.FridgeModelId).NotEqual(Guid.Empty);
             RuleFor(updateFridgeCommand =>
-                updateFridgeCommand.Name).NotEmpty().MaximumLength(20);
+                updateFridgeCommand.Name).NotEmpty().MaximumLength(50);
             RuleFor(updateFridgeCommand =>
                 updateFridgeCommand.OwnerName).NotEmpty().MaximumLength(20);
         }

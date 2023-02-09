@@ -1,0 +1,1 @@
+export * from './fridge-model-edit.component'

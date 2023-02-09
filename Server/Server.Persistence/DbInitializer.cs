@@ -12,6 +12,7 @@ namespace Server.Persistence
     {
         public static void Initialize(ServerDbContext context)
         {
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             Guid[] fridgeModelGuids = new Guid[5], 

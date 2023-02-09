@@ -11,7 +11,7 @@ namespace Server.Persistence.EntityTypeConfigurations
             builder.HasKey(fridge => fridge.Id);
             builder.HasIndex(fridge => fridge.Id).IsUnique();
             builder.Property(fridge => fridge.OwnerName).HasMaxLength(20);
-            builder.Property(fridge => fridge.Name).HasMaxLength(20);
+            builder.Property(fridge => fridge.Name).HasMaxLength(50);
         }
     }
 }

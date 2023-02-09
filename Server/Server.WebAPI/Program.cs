@@ -77,7 +77,7 @@ namespace Server.WebAPI
             app.UseCustomExceptionHandler();
             app.UseRouting();
             app.UseHttpsRedirection();
-            //app.UseCors("AllowAll");
+            app.UseCors("AllowAll");
 
             app.UseEndpoints(endpoints =>
             {

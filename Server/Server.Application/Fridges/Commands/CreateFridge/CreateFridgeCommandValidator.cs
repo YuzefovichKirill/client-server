@@ -7,7 +7,7 @@ namespace Server.Application.Fridges.Commands.CreateFridge
         public CreateFridgeCommandValidator()
         {
             RuleFor(createFridgeCommand =>
-                createFridgeCommand.Name).NotEmpty().MaximumLength(20);
+                createFridgeCommand.Name).NotEmpty().MaximumLength(50);
         }
     }
 }
