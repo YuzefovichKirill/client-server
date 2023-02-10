@@ -1,0 +1,20 @@
+<div class="container my-5">
+  <h1>Edit product</h1>
+  
+<form #form="ngForm" (ngSubmit)="editProduct()">
+  <div class="mb-3">
+    <label for="id" class="form-label">Id</label>
+    <input type="text" readonly class="form-control" id="id" name="id" [(ngModel)]="product.id"/>
+  </div>
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="product.name"/>
+  </div>
+  <div class="mb-3">
+    <label for="defaultQuantity" class="form-label">Default quantity</label>
+    <input type="number" class="form-control" id="defaultQuantity" name="defaultQuantity" [(ngModel)]="product.defaultQuantity"/>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>

@@ -27,7 +27,7 @@ namespace Server.WebAPI.Controllers
         public async Task<ActionResult<Guid>> Get(Guid id)
         {
             var query = new GetProductQuery() { Id = id };
-            var vm = Mediator.Send(query);
+            var vm = await Mediator.Send(query);
             return Ok(vm);
         }
 
@@ -45,7 +45,7 @@ namespace Server.WebAPI.Controllers
             return NoContent();
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteProductCommand { Id = id };

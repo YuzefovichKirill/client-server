@@ -10,7 +10,7 @@ import { FridgeModelService } from '../../../shared/services/fridge-model.servic
 })
 export class FridgeModelEditComponent implements OnInit {
 
-  fridgeModel: FridgeModel= {
+  fridgeModel: FridgeModel = {
     id: '',
     name: '',
     year: 0
@@ -28,8 +28,8 @@ export class FridgeModelEditComponent implements OnInit {
         if (id) {
           this.fridgeModelService.getFridgeModel(id)
             .subscribe({
-              next: (responce) => {
-                this.fridgeModel = responce
+              next: (response) => {
+                this.fridgeModel = response
               }
             })
         }

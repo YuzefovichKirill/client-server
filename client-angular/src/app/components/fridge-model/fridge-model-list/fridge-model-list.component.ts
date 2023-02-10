@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FridgeModel } from '../../../shared/models/fridge-model/fridge-model.model';
+import { FridgeModel } from '../../../shared/models';
 import { FridgeModelService } from '../../../shared/services/fridge-model.service';
 
 @Component({
@@ -30,27 +30,20 @@ export class FridgeModelListComponent implements OnInit {
     if(confirm('Are you sure to delete this record?'))
     {
       this.fridgeModelService.deleteFridgeModel(id)
-      .subscribe({
-        next: () => {
-          
-        }
-      })
+        .subscribe()
 
       this.fridgeModelService.getFridgeModelList()
-      .subscribe({
-        next: (fridgeModels) => {
-          this.fridgeModels = fridgeModels
-          this.router.navigate(['/fridge-model'])
-        },
-        error: (response) => {
-          console.log(response)
-        }
-      })
+        .subscribe({
+          next: (fridgeModels) => {
+            this.fridgeModels = fridgeModels
+            this.router.navigate(['fridge-model'])
+          },
+          error: (response) => {
+            console.log(response)
+          }
+        })
 
-      window.location.reload();
+      window.location.reload()
     }
-
-
   }
-
 }

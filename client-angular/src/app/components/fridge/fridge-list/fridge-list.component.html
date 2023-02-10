@@ -1,0 +1,28 @@
+<div class="container my-5">
+  <h1>Fridges</h1>
+
+  <button class="btn btn-primary" routerLink="/fridge/create">Create fridge</button>
+  
+  <table class="table" *ngIf="fridges && fridges.length!==0">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Owner name</th>
+        <th>Fridge model id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fridge of fridges">
+        <td>{{ fridge.id }}</td>
+        <td>{{ fridge.name }}</td>
+        <td>{{ fridge.ownerName }}</td>
+        <td>{{ fridge.fridgeModelId }}</td>
+        <td><button class="btn btn-primary" [routerLink]="['edit', fridge.id]">Update</button></td>
+        <td><i class="far fa-trash-alt text-danger" (click)="deleteFridge(fridge.id)"></i></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!fridges || fridges.length === 0">There is no fridges found</p>
+</div>

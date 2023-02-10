@@ -6,19 +6,32 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home';
-import { FridgeModelListComponent } from './components/fridge-model/fridge-model-list';
-import { FridgeModelCreateComponent } from './components/fridge-model/fridge-model-create';
 import { FormsModule } from '@angular/forms';
-import { FridgeModelEditComponent } from './components/fridge-model/fridge-model-edit';
+
+import { FridgeModelCreateComponent, FridgeModelEditComponent, 
+        FridgeModelListComponent } from './components/fridge-model'
+import { FridgeCreateComponent, FridgeListComponent,
+        FridgeEditComponent } from './components/fridge';
+import { ProductCreateComponent, ProductEditComponent, 
+        ProductListComponent } from './components/product';
 
 @NgModule({
   declarations: [			
     AppComponent,
     HomeComponent,
+    
     FridgeModelListComponent,
     FridgeModelCreateComponent,
-    FridgeModelEditComponent
-   ],
+    FridgeModelEditComponent,
+
+    FridgeListComponent,
+    FridgeCreateComponent,
+    FridgeEditComponent,
+    
+    ProductListComponent,
+    ProductCreateComponent,
+    ProductEditComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

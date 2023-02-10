@@ -30,6 +30,6 @@ export class FridgeModelService {
     }
 
     deleteFridgeModel(id: string): Observable<FridgeModel> {
-         return this.http.delete<FridgeModel>(this.baseUrl + id)
+        return this.http.delete<FridgeModel>(this.baseUrl + id)
     }
 }

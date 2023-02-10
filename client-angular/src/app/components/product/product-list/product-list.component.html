@@ -1,0 +1,26 @@
+<div class="container my-5">
+  <h1>Products</h1>
+
+  <button class="btn btn-primary" routerLink="/product/create">Create product</button>
+  
+  <table class="table" *ngIf="products && products.length!==0">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Default Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.defaultQuantity }}</td>
+        <td><button class="btn btn-primary" [routerLink]="['edit', product.id]">Update</button></td>
+        <td><i class="far fa-trash-alt text-danger" (click)="deleteProduct(product.id)"></i></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!products || products.length === 0">There is no products found</p>
+</div>

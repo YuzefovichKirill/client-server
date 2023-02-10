@@ -1,1 +1,0 @@
-export * from './fridge-model-list.component';

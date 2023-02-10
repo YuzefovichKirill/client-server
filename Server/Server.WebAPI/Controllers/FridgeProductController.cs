@@ -46,7 +46,7 @@ namespace Server.WebAPI.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteFridgeProductCommand { Id = id };

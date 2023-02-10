@@ -25,8 +25,7 @@ export class FridgeModelCreateComponent implements OnInit {
     this.fridgeModelService.postFridgeModel(this.fridgeModelCreate)
       .subscribe({
         next: (fridgeModelGuid) => {
-          //console.log(fridgeModelGuid)
-          this.router.navigate(['/fridge-model']);
+          this.router.navigate(['fridge-model']);
         }
       })
   }
