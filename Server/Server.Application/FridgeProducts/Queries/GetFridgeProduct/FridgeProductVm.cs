@@ -15,8 +15,6 @@ namespace Server.Application.FridgeProducts.Queries.GetFridgeProduct
         public Guid ProductId { get; set; }
         public Guid FridgeId { get; set; }
         public int Quantity { get; set; }
-        public int DefaultQuantity { get; set; }
-        public string FridgeName { get; set; }
 
         public void Mapping(Profile profile)
         {

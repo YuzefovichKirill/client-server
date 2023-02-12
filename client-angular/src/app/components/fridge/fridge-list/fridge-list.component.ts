@@ -41,7 +41,6 @@ deleteFridge(id:string) {
       })
 
       window.location.reload()
+    }
   }
-}
-
 }

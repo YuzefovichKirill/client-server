@@ -21,7 +21,8 @@ namespace Server.WebAPI.Controllers
         {
             var query = new GetAllFridgeProductQuery() {  FridgeId = fridgeId };
             var vm = await Mediator.Send(query);
-            return Ok(vm);
+            
+            return Ok(vm.fridgeProducts);
         }
 
         [HttpGet("{fridgeId}&{productId}")]

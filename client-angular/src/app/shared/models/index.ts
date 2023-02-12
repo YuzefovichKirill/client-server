@@ -6,3 +6,6 @@ export * from './fridge/fridge-create.model'
 
 export * from './product/product.model'
 export * from './product/product-create.model'
+
+export * from './fridge-product/fridge-product.model'
+export * from './fridge-product/fridge-product-create.model'

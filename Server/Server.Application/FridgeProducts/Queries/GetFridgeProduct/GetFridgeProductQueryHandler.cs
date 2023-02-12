@@ -44,11 +44,7 @@ namespace Server.Application.FridgeProducts.Queries.GetFridgeProduct
                 throw new NotFoundException(nameof(FridgeProduct), request.ProductId.ToString() + " " + request.FridgeId.ToString());
             }
 
-            FridgeProductVm fridgeProductVm = _mapper.Map<FridgeProductVm>(fridgeProduct);
-            fridgeProductVm.DefaultQuantity = product.DefaultQuantity;
-            fridgeProductVm.FridgeName = fridge.Name;
-
-            return fridgeProductVm;
+            return _mapper.Map<FridgeProductVm>(fridgeProduct);
         }
     }
 }

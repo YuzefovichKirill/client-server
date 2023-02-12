@@ -29,8 +29,8 @@ export class FridgeEditComponent implements OnInit {
         if(id) {
           this.fridgeService.getFridge(id)
             .subscribe({
-              next: (responce) => {
-                this.fridge = responce
+              next: (response) => {
+                this.fridge = response
               }
             })
         }

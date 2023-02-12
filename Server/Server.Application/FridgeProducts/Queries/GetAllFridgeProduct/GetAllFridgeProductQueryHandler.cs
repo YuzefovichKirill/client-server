@@ -32,7 +32,6 @@ namespace Server.Application.FridgeProducts.Queries.GetAllFridgeProduct
 
             var fridgeProductsList = await _dbContext.FridgeProducts
                 .Where(fridgeProduct => fridgeProduct.FridgeId == request.FridgeId)
-                .ProjectTo<FridgeProductDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
             if (fridgeProductsList == null)
@@ -42,7 +41,6 @@ namespace Server.Application.FridgeProducts.Queries.GetAllFridgeProduct
 
             return new FridgeProductListVm
             {
-                fridge = fridge,
                 fridgeProducts = fridgeProductsList
             };
         }

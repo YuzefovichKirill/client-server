@@ -14,6 +14,7 @@ import { FridgeCreateComponent, FridgeListComponent,
         FridgeEditComponent } from './components/fridge';
 import { ProductCreateComponent, ProductEditComponent, 
         ProductListComponent } from './components/product';
+import { FridgeProductCreateComponent, FridgeProductEditComponent, FridgeProductListComponent } from './components/fridge-product';
 
 @NgModule({
   declarations: [			
@@ -30,7 +31,11 @@ import { ProductCreateComponent, ProductEditComponent,
     
     ProductListComponent,
     ProductCreateComponent,
-    ProductEditComponent
+    ProductEditComponent,
+
+    FridgeProductListComponent,
+    FridgeProductCreateComponent,
+    FridgeProductEditComponent
   ],
   imports: [
     BrowserModule,

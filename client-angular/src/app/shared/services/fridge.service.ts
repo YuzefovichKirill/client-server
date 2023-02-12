@@ -21,12 +21,12 @@ export class FridgeService {
         return this.http.get<Fridge>(this.baseUrl + id)
     }
 
-    postFridge(fridgeModelCreate: FridgeCreate): Observable<FridgeCreate> {
-        return this.http.post<FridgeCreate>(this.baseUrl, fridgeModelCreate)
+    postFridge(fridgeCreate: FridgeCreate): Observable<FridgeCreate> {
+        return this.http.post<FridgeCreate>(this.baseUrl, fridgeCreate)
     }
 
-    putFridge(fridgeModel: Fridge): Observable<Fridge> {
-        return this.http.put<Fridge>(this.baseUrl, fridgeModel)
+    putFridge(fridge: Fridge): Observable<Fridge> {
+        return this.http.put<Fridge>(this.baseUrl, fridge)
     }
 
     deleteFridge(id: string): Observable<Fridge> {

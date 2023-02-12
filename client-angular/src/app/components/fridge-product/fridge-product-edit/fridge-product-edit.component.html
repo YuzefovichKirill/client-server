@@ -1,0 +1,24 @@
+<div class="container my-5">
+  <h1>Edit fridge product</h1>
+  
+<form #form="ngForm" (ngSubmit)="editFridgeProduct()">
+  <div class="mb-3">
+    <label for="id" class="form-label">Id</label>
+    <input type="text" readonly class="form-control" id="id" name="id" [(ngModel)]="fridgeProduct.id"/>
+  </div>
+  <div class="mb-3">
+    <label for="fridgeId" class="form-label">Fridge id</label>
+    <input type="text" readonly class="form-control" id="fridgeId" name="fridgeId" [(ngModel)]="fridgeProduct.fridgeId"/>
+  </div>
+  <div class="mb-3">
+    <label for="productId" class="form-label">Product id</label>
+    <input type="text" class="form-control" id="productId" name="productId" [(ngModel)]="fridgeProduct.productId"/>
+  </div>
+  <div class="mb-3">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="text" class="form-control" id="quantity" name="quantity" [(ngModel)]="fridgeProduct.quantity"/>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>

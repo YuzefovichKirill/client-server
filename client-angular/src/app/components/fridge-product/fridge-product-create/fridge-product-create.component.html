@@ -1,0 +1,20 @@
+<div class="container my-5">
+  <h1>Create fridge product</h1>
+
+<form #form="ngForm" (ngSubmit)="createFridgeProduct()">
+  <div class="mb-3">
+    <label for="fridgeId" class="form-label">Fridge id</label>
+    <input type="text" readonly class="form-control" id="fridgeId" name="fridgeId" [(ngModel)]="fridgeProductCreate.fridgeId"/>
+  </div>
+  <div class="mb-3">
+    <label for="productId" class="form-label">Product id</label>
+    <input type="text" class="form-control" id="productId" name="productId" [(ngModel)]="fridgeProductCreate.productId"/>
+  </div>
+  <div class="mb-3">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number" class="form-control" id="quantity" name="quantity" [(ngModel)]="fridgeProductCreate.quantity"/>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>

@@ -6,6 +6,7 @@ using Server.Domain;
 namespace Server.Application.FridgeProducts.Commands.DeleteFridgeProduct
 {
     public class DeleteFridgeProductCommandHandler
+        : IRequestHandler<DeleteFridgeProductCommand>
     {
         private readonly IServerDbContext _dbContext;
 

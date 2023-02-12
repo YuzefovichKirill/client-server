@@ -33,7 +33,6 @@ namespace Server.Tests.FridgeProducts.Queries
 
             result.ShouldBeOfType<FridgeProductListVm>();
             result.fridgeProducts.Count.ShouldBe(2);
-            result.fridge.Id.ShouldBe(ContextFactory.fridgeGuids[0]);
         }
 
         [Fact]
