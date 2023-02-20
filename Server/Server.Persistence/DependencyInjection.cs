@@ -16,11 +16,10 @@ namespace Server.Persistence
             {
                 options.UseSqlServer(connectionString);
             });
-            // doesn't work
-            //services.AddScoped<IServerDbContext>(provider =>
-            //    provider.GetService<IServerDbContext>());
+            services.AddScoped<IServerDbContext>(provider =>
+                provider.GetService<ServerDbContext>());
 
-            services.AddScoped<IServerDbContext, ServerDbContext>();
+            //services.AddScoped<IServerDbContext, ServerDbContext>();
             return services;
         }
 

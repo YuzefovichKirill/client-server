@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Server.Application.FridgeProducts.Commands.CreateFridgeProduct;
 using Server.Application.FridgeProducts.Commands.DeleteFridgeProduct;
@@ -9,6 +10,7 @@ using Server.Application.FridgeProducts.Queries.GetFridgeProduct;
 
 namespace Server.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class FridgeProductController : BaseController
     {
@@ -16,6 +18,7 @@ namespace Server.WebAPI.Controllers
 
         public FridgeProductController(IMapper mapper) => _mapper = mapper;
 
+        [AllowAnonymous]
         [HttpGet("{fridgeId}")]
         public async Task<ActionResult<FridgeProductListVm>> GetAll(Guid fridgeId)
         {

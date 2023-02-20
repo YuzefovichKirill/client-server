@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Server.Application.Products.Commands.CreateProduct;
 using Server.Application.Products.Commands.DeleteProduct;
@@ -8,13 +9,15 @@ using Server.Application.Products.Queries.GetProduct;
 
 namespace Server.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class ProductController : BaseController
     {
         private readonly IMapper _mapper;
 
         public ProductController(IMapper mapper) => _mapper = mapper;
-
+        
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<ProductListVm>> GetAll()
         {

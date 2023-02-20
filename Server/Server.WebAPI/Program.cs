@@ -10,6 +10,9 @@ using System.Reflection;
 using Server.WebAPI.Middleware;
 using Serilog;
 using Serilog.Events;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Server.WebAPI
 {
@@ -50,6 +53,26 @@ namespace Server.WebAPI
                 });
             });
 
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>,
+                ConfigureSwaggerOptions>();
+
+            services
+                .AddAuthentication(config =>
+                { 
+                    config.DefaultAuthenticateScheme =
+                        JwtBearerDefaults.AuthenticationScheme;
+                    config.DefaultChallengeScheme = 
+                        JwtBearerDefaults.AuthenticationScheme;        
+                })
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "https://localhost:7088/";
+                    options.Audience = "ServerWebAPI";
+                    options.RequireHttpsMetadata = false;
+                });
+
+            services.AddAuthorization();
+
             services.AddSwaggerGen();
 
 
@@ -78,6 +101,9 @@ namespace Server.WebAPI
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

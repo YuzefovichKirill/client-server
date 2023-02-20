@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Server.Application.Fridges.Commands.CreateFridge;
 using Server.Application.Fridges.Commands.DeleteFridge;
@@ -8,6 +9,7 @@ using Server.Application.Fridges.Queries.GetFridge;
 
 namespace Server.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class FridgeController : BaseController
     {
@@ -15,6 +17,7 @@ namespace Server.WebAPI.Controllers
 
         public FridgeController(IMapper mapper) => _mapper = mapper;
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<FridgeListVm>> GetAll()
         {

@@ -6,9 +6,11 @@ using Server.Application.FridgeModels.Commands.CreateFridgeModel;
 using Server.Application.FridgeModels.Commands.DeleteFridgeModel;
 using Server.Application.FridgeModels.Commands.UpdateFridgeModel;
 using Server.WebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Server.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class FridgeModelController : BaseController
     {
@@ -16,12 +18,12 @@ namespace Server.WebAPI.Controllers
 
         public FridgeModelController(IMapper mapper) => _mapper = mapper;
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<FridgeModelListVm>> GetAll()
         {
             var query = new GetAllFridgeModelQuery();
             var vm = await Mediator.Send(query);
-            // change ?
             return Ok(vm.fridgeModels);
         }
 
