@@ -75,10 +75,11 @@ namespace Server.Identity.Controllers
 
             var user = new AppUser
             {
-                UserName = vm.UserName,
-                Email = vm.Email 
+                FirstName = vm.FirstName,
+                LastName = vm.LastName,
+                UserName = vm.FirstName + vm.LastName,
+                Email = vm.Email
             };
-
             var result = await _userManager.CreateAsync(user, vm.Password);
 
             if (result.Succeeded)

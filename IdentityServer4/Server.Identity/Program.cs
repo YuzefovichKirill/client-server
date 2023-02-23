@@ -56,7 +56,7 @@ namespace Server.Identity
             services.ConfigureApplicationCookie(config =>
             {
                 config.Cookie.Name = "Server.Identity.Cookie";
-                config.LoginPath = "/Auth.Login";
+                config.LoginPath = "/Auth/Login";
                 config.LogoutPath = "/Auth/Logout";
             });
             services.AddControllersWithViews();
@@ -85,7 +85,7 @@ namespace Server.Identity
             { 
                 FileProvider = new PhysicalFileProvider(
                     Path.Combine(env.ContentRootPath, "Styles")),
-                RequestPath = "/styles"
+                RequestPath = "/Styles"
             });
             app.UseRouting();
             app.UseIdentityServer();

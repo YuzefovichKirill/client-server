@@ -1,7 +1,9 @@
+import { SignoutRedirectCallbackComponent } from './components/auth/signout-redirect-callback/signout-redirect-callback.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './components/home';
+import { SigninRedirectCallbackComponent } from './components/auth/signin-redirect-callback/signin-redirect-callback.component';
 import {FridgeModelCreateComponent, FridgeModelEditComponent, 
   FridgeModelListComponent} from './components/fridge-model'
 import { FridgeCreateComponent, FridgeEditComponent, 
@@ -13,6 +15,9 @@ import { FridgeProductCreateComponent, FridgeProductEditComponent,
   
 const routes: Routes = [
   {path: '', component: HomeComponent},
+
+  {path: 'signin-callback', component: SigninRedirectCallbackComponent},
+  {path: 'signout-callback', component: SignoutRedirectCallbackComponent},
   
   {path: 'fridge-model', component: FridgeModelListComponent},
   {path: 'fridge-model/create', component: FridgeModelCreateComponent},

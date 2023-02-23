@@ -35,30 +35,30 @@ namespace Server.Identity
             {
                 new Client
                 {
-                    ClientId = "server-web-api",
+                    ClientId = "angular-web-app",
                     ClientName = "Angular client",
                     AllowedGrantTypes = GrantTypes.Code,
                     RequireClientSecret = false,
                     RequirePkce = true,
+                    AllowAccessTokensViaBrowser = true,
                     RedirectUris =
                     {
-                        "http://.../signin-oidc"
+                        "http://localhost:4200/signin-callback"
                     },
                     AllowedCorsOrigins =
                     {
-                        "http:///..."
+                        "http://localhost:4200"
                     },
                     PostLogoutRedirectUris =
                     {
-                        "http://.../signout-oidc"
+                        "http://localhost:4200/signout-callback"
                     },
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "ServerWebAPI"
-                    },
-                    AllowAccessTokensViaBrowser = true,
+                    }
                 }
             };
     }

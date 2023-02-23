@@ -1,0 +1,4 @@
+<section >
+  <button *ngIf="!isUserAuthenticated" class="btn btn-link" (click)="login()">Login</button>
+  <button *ngIf="isUserAuthenticated" class="btn btn-link" (click)="logout()">Logout</button>
+</section>

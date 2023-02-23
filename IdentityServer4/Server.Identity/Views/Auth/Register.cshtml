@@ -8,8 +8,12 @@
     <input type="hidden" asp-for="ReturnUrl" />
     <div class="header">Sign Up</div>
     <div class="block">
-        <label>UserName</label>
-        <input type="text" asp-for="UserName" class="input" />
+        <label>FirstName</label>
+        <input type="text" asp-for="FirstName" class="input" />
+    </div>
+    <div class="block">
+        <label>LastName</label>
+        <input type="text" asp-for="LastName" class="input" />
     </div>
     <div class="block">
         <label>Email</label>
@@ -20,7 +24,7 @@
         <input type="password" asp-for="Password" class="input" /> 
     </div>
     <div class="block">
-        <label>Password</label>
+        <label>Confirm Password</label>
         <input type="password" asp-for="ConfirmPassword" class="input" /> 
     </div>
     <div class="block">

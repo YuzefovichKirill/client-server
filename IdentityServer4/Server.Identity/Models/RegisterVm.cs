@@ -5,7 +5,9 @@ namespace Server.Identity.Models
     public class RegisterVm
     {
         [Required]
-        public string UserName { get; set; }
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
